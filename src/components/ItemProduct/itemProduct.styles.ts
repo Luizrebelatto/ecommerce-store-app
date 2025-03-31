@@ -19,5 +19,15 @@ export const styles = StyleSheet.create({
         fontSize: 24,
         color: 'black',
         fontWeight: 'bold'
+    },
+    subtitle: {
+        fontSize: 20,
+        color: 'black',
+        fontWeight: 'bold'
+    },
+    price: {
+        fontSize: 18,
+        color: 'black',
+        fontWeight: '700'
     }
 })
