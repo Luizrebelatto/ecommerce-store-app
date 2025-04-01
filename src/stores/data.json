@@ -1,44 +1,44 @@
 {
-    "livros": [
+    "books": [
       {
         "id": 1,
-        "titulo": "1984",
-        "autor": "George Orwell",
-        "ano": 1949,
-        "descricao": "Um romance distópico sobre um futuro totalitário...",
-        "preco": 39.90
+        "title": "1984",
+        "author": "George Orwell",
+        "year": 1949,
+        "description": "description 1",
+        "price": 39.90
       },
       {
         "id": 2,
-        "titulo": "Dom Casmurro",
-        "autor": "Machado de Assis",
-        "ano": 1899,
-        "descricao": "A história de Bentinho e sua relação com Capitu...",
-        "preco": 29.90
+        "title": "Dom Casmurro",
+        "author": "Machado de Assis",
+        "year": 1899,
+        "description": "description.",
+        "price": 29.90
       },
       {
         "id": 3,
-        "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
-        "autor": "J.R.R. Tolkien",
-        "ano": 1954,
-        "descricao": "A jornada de Frodo Bolseiro para destruir o Um Anel...",
-        "preco": 59.90
+        "title": "O Senhor dos Anéis: A Sociedade do Anel",
+        "author": "J.R.R. Tolkien",
+        "year": 1954,
+        "description": "A jornada de Frodo Bolseiro para destruir o Um Anel...",
+        "price": 59.90
       },
       {
         "id": 4,
-        "titulo": "O Pequeno Príncipe",
-        "autor": "Antoine de Saint-Exupéry",
-        "ano": 1943,
-        "descricao": "A história de um príncipe que viaja de planeta em planeta...",
-        "preco": 19.90
+        "title": "O Pequeno Príncipe",
+        "author": "Antoine de Saint-Exupéry",
+        "year": 1943,
+        "description": "A história de um príncipe que viaja de planeta em planeta...",
+        "price": 19.90
       },
       {
         "id": 5,
-        "titulo": "Harry Potter e a Pedra Filosofal",
-        "autor": "J.K. Rowling",
-        "ano": 1997,
-        "descricao": "O início da saga de Harry Potter, um jovem bruxo...",
-        "preco": 49.90
+        "title": "Harry Potter e a Pedra Filosofal",
+        "author": "J.K. Rowling",
+        "year": 1997,
+        "description": "O início da saga de Harry Potter, um jovem bruxo...",
+        "price": 49.90
       }
     ]
   }

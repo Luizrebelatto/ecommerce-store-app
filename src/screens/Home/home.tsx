@@ -2,51 +2,51 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
-import livrosData from "../../stores/data.json"
+import booksData from "../../stores/data.json"
 
 const LivroScreen = () => {
-  const [livros, setLivros] = useState(livrosData.livros);
+  const [books, setBooks] = useState(booksData.books);
   const [filtro, setFiltro] = useState('');
-  const [ordenacao, setOrdenacao] = useState('');
+  const [sortBooks, setSortBooks] = useState('');
 
-  const filtrarLivros = (texto) => {
+  const filterBooks = (texto) => {
     setFiltro(texto);
-    const livrosFiltrados = livrosData.livros.filter((livro) =>
-      livro.titulo.toLowerCase().includes(texto.toLowerCase())
+    const filterBooks = booksData.books.filter((book) =>
+      book.title.toLowerCase().includes(texto.toLowerCase())
     );
-    setLivros(livrosFiltrados);
+    setBooks(filterBooks);
   };
 
-  const ordenarLivros = (criterio) => {
-    let livrosOrdenados = [...livros];
+  const sortingBooks = (rule) => {
+    let sortedBooks = [...books];
 
-    switch (criterio) {
+    switch (rule) {
       case 'A-Z':
-        livrosOrdenados = livrosOrdenados.sort((a, b) => a.titulo.localeCompare(b.titulo));
+        sortedBooks = sortedBooks.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case 'Z-A':
-        livrosOrdenados = livrosOrdenados.sort((a, b) => b.titulo.localeCompare(a.titulo));
+        sortedBooks = sortedBooks.sort((a, b) => b.title.localeCompare(a.title));
         break;
-      case 'maisBarato':
-        livrosOrdenados = livrosOrdenados.sort((a, b) => a.preco - b.preco);
+      case 'moreCheaper':
+        sortedBooks = sortedBooks.sort((a, b) => a.price - b.price);
         break;
-      case 'maisCaro':
-        livrosOrdenados = livrosOrdenados.sort((a, b) => b.preco - a.preco);
+      case 'moreExpensive':
+        sortedBooks = sortedBooks.sort((a, b) => b.price - a.price);
         break;
       default:
         break;
     }
 
-    setLivros(livrosOrdenados);
-    setOrdenacao(criterio);
+    setBooks(sortedBooks);
+    setSortBooks(rule);
   };
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
-      <Text style={styles.titulo}>{item.titulo}</Text>
-      <Text style={styles.autor}>Autor: {item.autor}</Text>
-      <Text style={styles.preco}>Preço: R${item.preco.toFixed(2)}</Text>
-      <Text style={styles.descricao}>{item.descricao}</Text>
+      <Text style={styles.titulo}>{item.title}</Text>
+      <Text style={styles.autor}>Autor: {item.author}</Text>
+      <Text style={styles.preco}>Preço: R${item.price.toFixed(2)}</Text>
+      <Text style={styles.descricao}>{item.description}</Text>
     </View>
   );
 
@@ -58,23 +58,23 @@ const LivroScreen = () => {
         style={styles.input}
         placeholder="Filtrar por título..."
         value={filtro}
-        onChangeText={filtrarLivros}
+        onChangeText={filterBooks}
       />
 
 <Picker
-  selectedValue={ordenacao}
+  selectedValue={sortBooks}
   onValueChange={(itemValue, itemIndex) =>
-    ordenarLivros(itemValue)
+    sortingBooks(itemValue)
   }>
-  <Picker.Item label="Ordenar por" value="" />
+  <Picker.Item label="Sort by" value="" />
         <Picker.Item label="A-Z" value="A-Z" />
         <Picker.Item label="Z-A" value="Z-A" />
-        <Picker.Item label="Mais baratos" value="maisBarato" />
-        <Picker.Item label="Mais caros" value="maisCaro" />
+        <Picker.Item label="More cheaper" value="moreCheaper" />
+        <Picker.Item label="More Expensive" value="moreExpensive" />
 </Picker>
 
       <FlatList
-        data={livros}
+        data={books}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
       />
