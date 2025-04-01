@@ -6,14 +6,12 @@ export const styles = StyleSheet.create({
         height: 100,
         flexDirection: 'row',
         paddingHorizontal: 8,
-        justifyContent: 'space-between'
     },
     imageProduct: {
-        width: 150,
-        height: 150,
+        width: 80,
+        height: 120,
         borderRadius: 4,
         backgroundColor: 'yellow',
-        marginRight: 10
     },
     title: {
         fontSize: 24,
