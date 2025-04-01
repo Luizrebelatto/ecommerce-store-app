@@ -1,0 +1,45 @@
+{
+    "livros": [
+      {
+        "id": 1,
+        "titulo": "1984",
+        "autor": "George Orwell",
+        "ano": 1949,
+        "descricao": "Um romance distópico sobre um futuro totalitário...",
+        "preco": 39.90
+      },
+      {
+        "id": 2,
+        "titulo": "Dom Casmurro",
+        "autor": "Machado de Assis",
+        "ano": 1899,
+        "descricao": "A história de Bentinho e sua relação com Capitu...",
+        "preco": 29.90
+      },
+      {
+        "id": 3,
+        "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+        "autor": "J.R.R. Tolkien",
+        "ano": 1954,
+        "descricao": "A jornada de Frodo Bolseiro para destruir o Um Anel...",
+        "preco": 59.90
+      },
+      {
+        "id": 4,
+        "titulo": "O Pequeno Príncipe",
+        "autor": "Antoine de Saint-Exupéry",
+        "ano": 1943,
+        "descricao": "A história de um príncipe que viaja de planeta em planeta...",
+        "preco": 19.90
+      },
+      {
+        "id": 5,
+        "titulo": "Harry Potter e a Pedra Filosofal",
+        "autor": "J.K. Rowling",
+        "ano": 1997,
+        "descricao": "O início da saga de Harry Potter, um jovem bruxo...",
+        "preco": 49.90
+      }
+    ]
+  }
+  
