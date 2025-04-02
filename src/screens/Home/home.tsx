@@ -52,7 +52,6 @@ const Home = () => {
         <BookItem
           author={item.author}
           description={item.description}
-          year={item.year}
           price={item.price}
           title={item.title}
         />
