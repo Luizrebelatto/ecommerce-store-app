@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import BookItem from "../../components/BookItem";
 import booksData from "../../stores/data.json";
@@ -23,6 +23,7 @@ export default function Home() {
 
       <Picker
         selectedValue={rule}
+        testID='sort-picker'
         onValueChange={(itemValue) => handleSorting(itemValue)}
       >
         <Picker.Item label="Sort by" value="" />
