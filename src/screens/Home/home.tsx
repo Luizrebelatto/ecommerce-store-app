@@ -3,6 +3,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import BookItem from "../../components/BookItem";
 import booksData from "../../stores/data.json"
+import { styles } from './home.styles';
 
 const Home = () => {
   const [books, setBooks] = useState(booksData.books);
@@ -34,7 +35,8 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.tituloTela}>Lista de Livros</Text>
+    <Text style={styles.title}>BOOK STORE</Text>
+
     <Picker
       selectedValue={sortBooks}
       onValueChange={(itemValue, itemIndex) =>
@@ -46,6 +48,7 @@ const Home = () => {
       <Picker.Item label="More cheaper" value="moreCheaper" />
       <Picker.Item label="More Expensive" value="moreExpensive" />
     </Picker>
+
     <FlatList
       data={books}
       renderItem={({ item, index }) => (
@@ -54,6 +57,7 @@ const Home = () => {
           description={item.description}
           price={item.price}
           title={item.title}
+          key={index}
         />
       )}
       keyExtractor={(item) => item.id.toString()}
@@ -61,43 +65,5 @@ const Home = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  tituloTela: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    textAlign: 'center',
-  },
-  input: {
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingLeft: 10,
-    marginBottom: 20,
-  },
-  picker: {
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 20,
-  },
-  item: {
-    backgroundColor: '#fff',
-    padding: 10,
-    marginBottom: 10,
-    borderRadius: 5,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    elevation: 2,
-  },
-});
 
 export default Home;
