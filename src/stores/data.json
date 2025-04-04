@@ -18,27 +18,107 @@
       },
       {
         "id": 3,
-        "title": "O Senhor dos Anéis: A Sociedade do Anel",
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
         "author": "J.R.R. Tolkien",
         "year": 1954,
-        "description": "A jornada de Frodo Bolseiro para destruir o Um Anel...",
+        "description": "Frodo Baggins' journey to destroy the One Ring...",
         "price": 59.90
       },
       {
         "id": 4,
-        "title": "O Pequeno Príncipe",
+        "title": "The Little Prince",
         "author": "Antoine de Saint-Exupéry",
         "year": 1943,
-        "description": "A história de um príncipe que viaja de planeta em planeta...",
+        "description": "The story of a prince who travels from planet to planet...",
         "price": 19.90
       },
       {
         "id": 5,
-        "title": "Harry Potter e a Pedra Filosofal",
+        "title": "Harry Potter and the Philosopher's Stone",
         "author": "J.K. Rowling",
         "year": 1997,
-        "description": "O início da saga de Harry Potter, um jovem bruxo...",
+        "description": "The beginning of the Harry Potter saga, a young wizard...",
         "price": 49.90
+      },
+      {
+        "id": 6,
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "author": "J.R.R. Tolkien",
+        "year": 1954,
+        "description": "The first part of the epic tale of Frodo Baggins and his journey to destroy the One Ring.",
+        "price": 39.99
+      },
+      {
+        "id": 7,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "year": 1925,
+        "description": "A story of love, wealth, and the American Dream set in the Jazz Age.",
+        "price": 19.99
+      },
+      {
+        "id": 8,
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "year": 1960,
+        "description": "A young girl learns about racial injustice in the American South during the 1930s.",
+        "price": 24.99
+      },
+      {
+        "id": 9,
+        "title": "1984",
+        "author": "George Orwell",
+        "year": 1949,
+        "description": "A dystopian novel about a totalitarian regime and its surveillance of citizens.",
+        "price": 14.99
+      },
+      {
+        "id": 10,
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "year": 1813,
+        "description": "A romantic novel that explores the manners and marriages of the British gentry.",
+        "price": 12.99
+      },
+      {
+        "id": 11,
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "year": 1951,
+        "description": "A rebellious teenager recounts his experiences and struggles with identity in post-war New York.",
+        "price": 17.99
+      },
+      {
+        "id": 12,
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "year": 1937,
+        "description": "Bilbo Baggins embarks on an unexpected adventure with dwarves to reclaim their homeland from a dragon.",
+        "price": 22.99
+      },
+      {
+        "id": 13,
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "year": 1932,
+        "description": "A satirical novel that critiques a society shaped by consumerism and technological control.",
+        "price": 18.99
+      },
+      {
+        "id": 14,
+        "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+        "author": "C.S. Lewis",
+        "year": 1950,
+        "description": "Four siblings discover a magical land and join a battle between good and evil.",
+        "price": 20.99
+      },
+      {
+        "id": 15,
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "year": 1988,
+        "description": "A young shepherd embarks on a journey to find his personal legend and treasure in the desert.",
+        "price": 16.99
       }
     ]
   }
