@@ -66,11 +66,11 @@
       },
       {
         "id": 9,
-        "title": "1984",
-        "author": "George Orwell",
-        "year": 1949,
-        "description": "A dystopian novel about a totalitarian regime and its surveillance of citizens.",
-        "price": 14.99
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "year": 1988,
+        "description": "A young shepherd embarks on a journey to find his personal legend and treasure in the desert.",
+        "price": 16.99
       },
       {
         "id": 10,
@@ -111,14 +111,6 @@
         "year": 1950,
         "description": "Four siblings discover a magical land and join a battle between good and evil.",
         "price": 20.99
-      },
-      {
-        "id": 15,
-        "title": "The Alchemist",
-        "author": "Paulo Coelho",
-        "year": 1988,
-        "description": "A young shepherd embarks on a journey to find his personal legend and treasure in the desert.",
-        "price": 16.99
       }
     ]
   }
