@@ -46,4 +46,9 @@ describe('Sorting Function', () => {
     expect(sortedBooks[1].price).toBe(39.90);
     expect(sortedBooks[2].price).toBe(29.90);
   });
+
+  it('should return the books unchanged when an invalid rule is provided', () => {
+    const sortedBooks = sortingBooks('invalidRule', bookMock);
+    expect(sortedBooks).toEqual(bookMock);
+  });
 });
