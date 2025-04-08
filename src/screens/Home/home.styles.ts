@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
       marginBottom: 10,
       textAlign: 'center',
+      alignItems: 'center'
     },
     picker: {
       height: 40,

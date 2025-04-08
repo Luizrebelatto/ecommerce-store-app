@@ -19,7 +19,12 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>BOOK STORE</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+        <Text style={styles.title}>BOOK STORE</Text>
+        <View style={{ width: 60, height: 60, borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}>
+          <Text style={{ fontSize: 30, fontWeight: 'bold' }}>+</Text>
+        </View>
+      </View>
 
       <Picker
         selectedValue={rule}
