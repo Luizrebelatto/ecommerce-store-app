@@ -5,7 +5,7 @@ import { styles } from "./styles";
 interface IInputField {
     value: string;
     placeholder?: string;
-    onChangeText?: () => void;
+    onChangeText?: (text: string) => void;
     label?: string;
 }
 

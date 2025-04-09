@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import BookItem from "../../components/BookItem";
 import booksData from "../../stores/data.json";
 import { styles } from './home.styles';
 import { sortingBooks } from '../../utils/sorting';
 import InputField from '../../components/InputField';
+import ModalForm from '../../components/ModalForm';
 
 export default function Home() {
   const [books, setBooks] = useState(booksData.books);
   const [rule, setRule] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const handleSorting = (rule) => {
     const sortedBooks = sortingBooks(rule, books);
@@ -17,13 +19,17 @@ export default function Home() {
     setRule(rule);
   };
 
+  const handleFormSubmit = (data: any) => {
+    console.log("Form data recebida na Home:", data);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.headerTitle}>
         <Text style={styles.title}>BOOK STORE</Text>
-        <View style={styles.circle}>
+        <TouchableOpacity style={styles.circle} onPress={() => setShowModal(true)}>
           <Text style={styles.plusSymbol}>+</Text>
-        </View>
+        </TouchableOpacity>
       </View>
       <Picker
         selectedValue={rule}
@@ -48,6 +54,11 @@ export default function Home() {
           />
         )}
         keyExtractor={(item) => item.id.toString()}
+      />
+      <ModalForm
+        visible={showModal}
+        onClose={() => setShowModal(false)}
+        onSubmitForm={handleFormSubmit}
       />
     </View>
   );
