@@ -5,6 +5,7 @@ import BookItem from "../../components/BookItem";
 import booksData from "../../stores/data.json";
 import { styles } from './home.styles';
 import { sortingBooks } from '../../utils/sorting';
+import InputField from '../../components/InputField';
 
 export default function Home() {
   const [books, setBooks] = useState(booksData.books);
@@ -24,7 +25,6 @@ export default function Home() {
           <Text style={styles.plusSymbol}>+</Text>
         </View>
       </View>
-
       <Picker
         selectedValue={rule}
         testID='sort-picker'
