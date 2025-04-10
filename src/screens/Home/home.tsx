@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, TextInput } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import BookItem from "../../components/BookItem";
 import booksData from "../../stores/data.json";
 import { styles } from './home.styles';
 import { sortingBooks } from '../../utils/sorting';
-import { useForm, Controller } from "react-hook-form"
 
 export default function Home() {
   const [books, setBooks] = useState(booksData.books);
   const [rule, setRule] = useState('');
-
-  const { handleSubmit, control } = useForm();
 
   const handleSorting = (rule) => {
     const sortedBooks = sortingBooks(rule, books);
@@ -38,20 +35,7 @@ export default function Home() {
         <Picker.Item label="Z-A" value="Z-A" />
         <Picker.Item label="More cheaper" value="moreCheaper" />
         <Picker.Item label="More Expensive" value="moreExpensive" />
-      </Picker>
-      <Controller
-        name='email'
-        control={control}
-        render={({ field: { value, onChange } }) => (
-          <TextInput
-            value={value}
-            onChangeText={onChange}
-            style={{ width: "100%", height: 40, backgroundColor: 'yellow' }}
-            placeholder='Email'
-          />
-        )}
-      />
-      
+      </Picker>      
       <FlatList
         data={books}
         renderItem={({ item, index }) => (
