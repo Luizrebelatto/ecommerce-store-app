@@ -18,10 +18,10 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+      <View style={styles.headerTitle}>
         <Text style={styles.title}>BOOK STORE</Text>
-        <View style={{ width: 60, height: 60, borderRadius: 30, alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{ fontSize: 30, fontWeight: 'bold' }}>+</Text>
+        <View style={styles.circle}>
+          <Text style={styles.plusSymbol}>+</Text>
         </View>
       </View>
 

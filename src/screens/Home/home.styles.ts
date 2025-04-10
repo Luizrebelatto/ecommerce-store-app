@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     title: {
       fontSize: 24,
       fontWeight: 'bold',
-      marginBottom: 10,
       textAlign: 'center',
       alignItems: 'center'
     },
@@ -31,4 +30,20 @@ export const styles = StyleSheet.create({
       shadowRadius: 3,
       elevation: 2,
     },
+    headerTitle: { 
+      flexDirection: 'row', 
+      alignItems: 'center', 
+      justifyContent: 'space-around' 
+    },
+    circle: {
+      width: 40, 
+      height: 40, 
+      borderRadius: 20, 
+      alignItems: 'center', 
+      justifyContent: 'center'
+    },
+    plusSymbol: {
+      fontSize: 30, 
+      fontWeight: 'bold'
+    }
 });
