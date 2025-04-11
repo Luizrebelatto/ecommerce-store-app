@@ -9,6 +9,7 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import { styles } from "./styles";
 import InputField from "../InputField";
+import { validatePrice, validateDescription, validateTitle } from "../../utils/validateInputs";
 
 interface FormModalProps {
   visible: boolean;
@@ -57,7 +58,10 @@ export default function ModalForm({
             <Controller
               control={control}
               name="title"
-              rules={{ required: "Required Title" }}
+              rules={{ 
+                required: "Required Title",
+                validate: (value) => validateTitle(value) || "Invalid Title" 
+              }}
               render={({ field: { onChange, value } }) => (
                 <InputField
                   placeholder="Enter a title"
@@ -93,7 +97,10 @@ export default function ModalForm({
             <Controller
               control={control}
               name="description"
-              rules={{ required: "Description Required" }}
+              rules={{ 
+                required: "Description Required",
+                validate: (value) => validateDescription(value) || "Invalid description"
+              }}
               render={({ field: { onChange, value } }) => (
                 <InputField
                   placeholder="Enter a description"
@@ -113,10 +120,7 @@ export default function ModalForm({
               name="price"
               rules={{
                 required: "Price required",
-                pattern: {
-                  value: /^\d+(\.\d{1,2})?$/,
-                  message: " Invalid price format",
-                },
+                validate: (value) => validatePrice(value) || "Invalid price format"
               }}
               render={({ field: { onChange, value } }) => (
                 <InputField
@@ -133,10 +137,10 @@ export default function ModalForm({
 
             <View style={styles.actions}>
             <TouchableOpacity onPress={handleSubmit(onSubmit)}>
-                <Text style={styles.cancel}>Salvar</Text>
+                <Text style={styles.cancel}>Save</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={onClose}>
-                <Text style={styles.cancel}>Cancelar</Text>
+                <Text style={styles.cancel}>Cancel</Text>
               </TouchableOpacity>
             </View>
           </ScrollView>

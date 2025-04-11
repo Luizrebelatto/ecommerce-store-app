@@ -23,8 +23,6 @@ export function validateDescription(value) {
 }
 
 export function validateTitle(value) {
-    if (!value) return false;
-    
     for (let i = 0; i < value.length; i++) {
       const char = value[i];
       const code = char.charCodeAt(0);
