@@ -32,4 +32,27 @@ describe('Home Component', () => {
     
     expect(sortingBooks).toHaveBeenCalledWith('A-Z', expect.any(Array));
   });
+
+  it("should open the modal by pressing the '+'", () => {
+    const { getByText } = render(<Home />);
+
+    const openButton = getByText('+');
+    fireEvent.press(openButton);
+
+    const modalTitle = getByText('New Item');
+    expect(modalTitle).toBeTruthy();
+  });
+
+  it('must close the modal by pressing “Cancel”', async () => {
+    const { getByText, queryByText } = render(<Home />);
+  
+    fireEvent.press(getByText('+'));
+    expect(getByText('New Item')).toBeTruthy();
+  
+    fireEvent.press(getByText('Cancel'));
+  
+    await waitFor(() => {
+      expect(queryByText('New Item')).toBeNull();
+    });
+  });
 });

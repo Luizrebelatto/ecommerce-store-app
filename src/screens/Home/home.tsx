@@ -18,8 +18,7 @@ export default function Home() {
     setRule(rule);
   };
 
-  const handleFormSubmit = (data: any) => {
-    console.log("Form data recebida na Home:", data);
+  const handleFormSubmit = () => {
   };
 
   return (

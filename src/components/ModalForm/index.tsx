@@ -42,11 +42,6 @@ export default function ModalForm({
     },
   });
 
-  const onSubmit = (data: FormData) => {
-    onSubmitForm(data);
-    onClose();
-  };
-
   return (
     <Modal visible={visible} animationType="slide" transparent>
       <View style={styles.overlay}>
@@ -136,7 +131,7 @@ export default function ModalForm({
             )}
 
             <View style={styles.actions}>
-            <TouchableOpacity onPress={handleSubmit(onSubmit)}>
+              <TouchableOpacity onPress={handleSubmit(onSubmitForm)}>
                 <Text style={styles.cancel}>Save</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={onClose}>

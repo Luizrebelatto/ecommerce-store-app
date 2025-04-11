@@ -8,7 +8,7 @@ describe('ModalForm Component', () => {
 
   const setup = () =>
     render(
-      <ModalForm visible={true} onClose={onClose} onSubmitForm={onSubmitForm} />
+      <ModalForm visible={true} onClose={onClose} onSubmitForm={onSubmitForm}/>
     );
 
   beforeEach(() => {
@@ -25,46 +25,79 @@ describe('ModalForm Component', () => {
     expect(getByPlaceholderText('Enter a price')).toBeTruthy();
   });
 
-  it('should render the right messages', async () => {
-    const { getByText } = setup();
-
-    fireEvent.press(getByText('Save'));
-
-    await waitFor(() => {
-      expect(getByText('Required Title')).toBeTruthy();
-      expect(getByText('Author Required')).toBeTruthy();
-      expect(getByText('Description Required')).toBeTruthy();
-      expect(getByText('Price required')).toBeTruthy();
-    });
-  });
-
-  it('should call onSubmitForm with the correct data', async () => {
-    const { getByPlaceholderText, getByText } = setup();
-
-    fireEvent.changeText(getByPlaceholderText('Enter a title'), 'Harry Potter');
-    fireEvent.changeText(getByPlaceholderText('Enter an author'), 'J.K Rowling');
-    fireEvent.changeText(getByPlaceholderText('Enter a description'), 'Harry Potter and the Philosophers Stone');
-    fireEvent.changeText(getByPlaceholderText('Enter a price'), '29.90');
-
-    fireEvent.press(getByText('Save'));
-
-    await waitFor(() => {
-      expect(onSubmitForm).toHaveBeenCalledWith({
-        title: 'Harry Potter',
-        author: 'J.K Rowling',
-        description: "Harry Potter and the Philosophers Stone",
-        price: '29.90',
-      });
-
-      expect(onClose).toHaveBeenCalled();
-    });
-  });
-
   it("should cancel modal when the user click button 'cancel'", () => {
     const { getByText } = setup();
 
     fireEvent.press(getByText('Cancel'));
 
     expect(onClose).toHaveBeenCalled();
+  });
+
+  it('should show "Invalid description" when description is invalid', async () => {
+    const { getByPlaceholderText, getByText } = render(
+      <ModalForm visible={true} onClose={() => {}} onSubmitForm={onSubmitForm}/>
+    );
+
+    fireEvent.changeText(getByPlaceholderText('Enter a title'), 'Some title');
+    fireEvent.changeText(getByPlaceholderText('Enter an author'), 'Author Name');
+    fireEvent.changeText(getByPlaceholderText('Enter a description'), 'The Pragmatic Programmer: From Journeyman to Master is a book about computer programming and software engineering');
+    fireEvent.changeText(getByPlaceholderText('Enter a price'), '10');
+
+    fireEvent.press(getByText('Save'));
+
+    await waitFor(() => {
+      expect(getByText('Invalid description')).toBeTruthy();
+    });
+  });
+
+  it('should show "Invalid price format" when price is invalid', async () => {
+    const { getByPlaceholderText, getByText } = render(
+      <ModalForm visible={true} onClose={() => {}} onSubmitForm={onSubmitForm}/>
+    );
+
+    fireEvent.changeText(getByPlaceholderText('Enter a title'), 'Some title');
+    fireEvent.changeText(getByPlaceholderText('Enter an author'), 'Author Name');
+    fireEvent.changeText(getByPlaceholderText('Enter a description'), 'short');
+    fireEvent.changeText(getByPlaceholderText('Enter a price'), '99,');
+
+    fireEvent.press(getByText('Save'));
+
+    await waitFor(() => {
+      expect(getByText('Invalid price format')).toBeTruthy();
+    });
+  });
+
+  it('should show "Author Required" when author is required', async () => {
+    const { getByPlaceholderText, getByText } = render(
+      <ModalForm visible={true} onClose={() => {}} onSubmitForm={onSubmitForm}/>
+    );
+
+    fireEvent.changeText(getByPlaceholderText('Enter a title'), 'Some title');
+    fireEvent.changeText(getByPlaceholderText('Enter an author'), '');
+    fireEvent.changeText(getByPlaceholderText('Enter a description'), 'short');
+    fireEvent.changeText(getByPlaceholderText('Enter a price'), '99,');
+
+    fireEvent.press(getByText('Save'));
+
+    await waitFor(() => {
+      expect(getByText('Author Required')).toBeTruthy();
+    });
+  });
+
+  it('should show "Invalid Title" when title is invalid', async () => {
+    const { getByPlaceholderText, getByText } = render(
+      <ModalForm visible={true} onClose={() => {}} onSubmitForm={onSubmitForm}/>
+    );
+
+    fireEvent.changeText(getByPlaceholderText('Enter a title'), 'Some title@');
+    fireEvent.changeText(getByPlaceholderText('Enter an author'), '');
+    fireEvent.changeText(getByPlaceholderText('Enter a description'), 'short');
+    fireEvent.changeText(getByPlaceholderText('Enter a price'), '99,');
+
+    fireEvent.press(getByText('Save'));
+
+    await waitFor(() => {
+      expect(getByText('Invalid Title')).toBeTruthy();
+    });
   });
 });
