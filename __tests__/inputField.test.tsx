@@ -1,12 +1,12 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
+import { render, fireEvent, screen } from '@testing-library/react-native';
 import InputField from '../src/components/InputField';
 
 describe('InputField Component', () => {
   it('should render input field and your props', () => {
     const mockOnChangeText = jest.fn();
     
-    const { getByPlaceholderText } = render(
+    render(
       <InputField
         value="Title Book"
         onChangeText={mockOnChangeText}
@@ -15,7 +15,7 @@ describe('InputField Component', () => {
       />
     );
 
-    const input = getByPlaceholderText("Enter a value");
+    const input = screen.getByPlaceholderText("Enter a value");
 
     expect(input.props.value).toBe("Title Book");
     expect(input.props.keyboardType).toBe("default");

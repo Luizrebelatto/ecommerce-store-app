@@ -34,25 +34,25 @@ describe('Home Component', () => {
   });
 
   it("should open the modal by pressing the '+'", () => {
-    const { getByText } = render(<Home />);
+    render(<Home />);
 
-    const openButton = getByText('+');
+    const openButton = screen.getByText('+');
     fireEvent.press(openButton);
 
-    const modalTitle = getByText('New Item');
+    const modalTitle = screen.getByText('New Item');
     expect(modalTitle).toBeTruthy();
   });
 
   it('must close the modal by pressing “Cancel”', async () => {
-    const { getByText, queryByText } = render(<Home />);
+    render(<Home />);
   
-    fireEvent.press(getByText('+'));
-    expect(getByText('New Item')).toBeTruthy();
+    fireEvent.press(screen.getByText('+'));
+    expect(screen.getByText('New Item')).toBeTruthy();
   
-    fireEvent.press(getByText('Cancel'));
+    fireEvent.press(screen.getByText('Cancel'));
   
     await waitFor(() => {
-      expect(queryByText('New Item')).toBeNull();
+      expect(screen.queryByText('New Item')).toBeNull();
     });
   });
 });

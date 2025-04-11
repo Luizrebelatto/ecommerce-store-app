@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react-native';
+import { render, fireEvent, waitFor, screen } from '@testing-library/react-native';
 import ModalForm from '../src/components/ModalForm';
 
 describe('ModalForm Component', () => {
@@ -17,87 +17,87 @@ describe('ModalForm Component', () => {
   });
 
   it('should render components correctly', () => {
-    const { getByPlaceholderText } = setup();
+    setup();
 
-    expect(getByPlaceholderText('Enter a title')).toBeTruthy();
-    expect(getByPlaceholderText('Enter an author')).toBeTruthy();
-    expect(getByPlaceholderText('Enter a description')).toBeTruthy();
-    expect(getByPlaceholderText('Enter a price')).toBeTruthy();
+    expect(screen.getByPlaceholderText('Enter a title')).toBeTruthy();
+    expect(screen.getByPlaceholderText('Enter an author')).toBeTruthy();
+    expect(screen.getByPlaceholderText('Enter a description')).toBeTruthy();
+    expect(screen.getByPlaceholderText('Enter a price')).toBeTruthy();
   });
 
   it("should cancel modal when the user click button 'cancel'", () => {
-    const { getByText } = setup();
+    setup();
 
-    fireEvent.press(getByText('Cancel'));
+    fireEvent.press(screen.getByText('Cancel'));
 
     expect(onClose).toHaveBeenCalled();
   });
 
   it('should show "Invalid description" when description is invalid', async () => {
-    const { getByPlaceholderText, getByText } = render(
+    render(
       <ModalForm visible={true} onClose={() => {}} onSubmitForm={onSubmitForm}/>
     );
 
-    fireEvent.changeText(getByPlaceholderText('Enter a title'), 'Some title');
-    fireEvent.changeText(getByPlaceholderText('Enter an author'), 'Author Name');
-    fireEvent.changeText(getByPlaceholderText('Enter a description'), 'The Pragmatic Programmer: From Journeyman to Master is a book about computer programming and software engineering');
-    fireEvent.changeText(getByPlaceholderText('Enter a price'), '10');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a title'), 'Some title');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter an author'), 'Author Name');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a description'), 'The Pragmatic Programmer: From Journeyman to Master is a book about computer programming and software engineering');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a price'), '10');
 
-    fireEvent.press(getByText('Save'));
+    fireEvent.press(screen.getByText('Save'));
 
     await waitFor(() => {
-      expect(getByText('Invalid description')).toBeTruthy();
+      expect(screen.getByText('Invalid description')).toBeTruthy();
     });
   });
 
   it('should show "Invalid price format" when price is invalid', async () => {
-    const { getByPlaceholderText, getByText } = render(
+    render(
       <ModalForm visible={true} onClose={() => {}} onSubmitForm={onSubmitForm}/>
     );
 
-    fireEvent.changeText(getByPlaceholderText('Enter a title'), 'Some title');
-    fireEvent.changeText(getByPlaceholderText('Enter an author'), 'Author Name');
-    fireEvent.changeText(getByPlaceholderText('Enter a description'), 'short');
-    fireEvent.changeText(getByPlaceholderText('Enter a price'), '99,');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a title'), 'Some title');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter an author'), 'Author Name');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a description'), 'short');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a price'), '99,');
 
-    fireEvent.press(getByText('Save'));
+    fireEvent.press(screen.getByText('Save'));
 
     await waitFor(() => {
-      expect(getByText('Invalid price format')).toBeTruthy();
+      expect(screen.getByText('Invalid price format')).toBeTruthy();
     });
   });
 
   it('should show "Author Required" when author is required', async () => {
-    const { getByPlaceholderText, getByText } = render(
+    render(
       <ModalForm visible={true} onClose={() => {}} onSubmitForm={onSubmitForm}/>
     );
 
-    fireEvent.changeText(getByPlaceholderText('Enter a title'), 'Some title');
-    fireEvent.changeText(getByPlaceholderText('Enter an author'), '');
-    fireEvent.changeText(getByPlaceholderText('Enter a description'), 'short');
-    fireEvent.changeText(getByPlaceholderText('Enter a price'), '99,');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a title'), 'Some title');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter an author'), '');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a description'), 'short');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a price'), '99,');
 
-    fireEvent.press(getByText('Save'));
+    fireEvent.press(screen.getByText('Save'));
 
     await waitFor(() => {
-      expect(getByText('Author Required')).toBeTruthy();
+      expect(screen.getByText('Author Required')).toBeTruthy();
     });
   });
 
   it('should show "Invalid Title" when title is invalid', async () => {
-    const { getByPlaceholderText, getByText } = render(
+    render(
       <ModalForm visible={true} onClose={() => {}} onSubmitForm={onSubmitForm}/>
     );
 
-    fireEvent.changeText(getByPlaceholderText('Enter a title'), 'Some title@');
-    fireEvent.changeText(getByPlaceholderText('Enter an author'), '');
-    fireEvent.changeText(getByPlaceholderText('Enter a description'), 'short');
-    fireEvent.changeText(getByPlaceholderText('Enter a price'), '99,');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a title'), 'Some title@');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter an author'), '');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a description'), 'short');
+    fireEvent.changeText(screen.getByPlaceholderText('Enter a price'), '99,');
 
-    fireEvent.press(getByText('Save'));
+    fireEvent.press(screen.getByText('Save'));
 
     await waitFor(() => {
-      expect(getByText('Invalid Title')).toBeTruthy();
+      expect(screen.getByText('Invalid Title')).toBeTruthy();
     });
   });
 });
