@@ -52,18 +52,17 @@ export default function ModalForm({
       <View style={styles.overlay}>
         <View style={styles.modalContent}>
           <ScrollView>
-            <Text style={styles.title}>Novo Item</Text>
+            <Text style={styles.title}>New Item</Text>
 
-            {/* TITLE */}
-            <Text style={styles.label}>Título</Text>
+            <Text style={styles.label}>Title</Text>
             <Controller
               control={control}
               name="title"
-              rules={{ required: "Título obrigatório" }}
+              rules={{ required: "Required Title" }}
               render={({ field: { onChange, value } }) => (
                 <TextInput
                   style={styles.input}
-                  placeholder="Digite o título"
+                  placeholder="Enter a Title"
                   value={value}
                   onChangeText={onChange}
                 />
@@ -73,16 +72,15 @@ export default function ModalForm({
               <Text style={styles.error}>{errors.title.message}</Text>
             )}
 
-            {/* AUTHOR */}
-            <Text style={styles.label}>Autor</Text>
+            <Text style={styles.label}>Author</Text>
             <Controller
               control={control}
               name="author"
-              rules={{ required: "Autor obrigatório" }}
+              rules={{ required: "Author Required" }}
               render={({ field: { onChange, value } }) => (
                 <TextInput
                   style={styles.input}
-                  placeholder="Digite o autor"
+                  placeholder="Enter an author"
                   value={value}
                   onChangeText={onChange}
                 />
@@ -92,16 +90,15 @@ export default function ModalForm({
               <Text style={styles.error}>{errors.author.message}</Text>
             )}
 
-            {/* DESCRIPTION */}
-            <Text style={styles.label}>Descrição</Text>
+            <Text style={styles.label}>Description</Text>
             <Controller
               control={control}
               name="description"
-              rules={{ required: "Descrição obrigatória" }}
+              rules={{ required: "Description Required" }}
               render={({ field: { onChange, value } }) => (
                 <TextInput
                   style={[styles.input, { height: 80 }]}
-                  placeholder="Digite a descrição"
+                  placeholder="Enter a description"
                   value={value}
                   onChangeText={onChange}
                   multiline
@@ -112,16 +109,15 @@ export default function ModalForm({
               <Text style={styles.error}>{errors.description.message}</Text>
             )}
 
-            {/* PRICE */}
-            <Text style={styles.label}>Preço</Text>
+            <Text style={styles.label}>Price</Text>
             <Controller
               control={control}
               name="price"
               rules={{
-                required: "Preço obrigatório",
+                required: "Price required",
                 pattern: {
                   value: /^\d+(\.\d{1,2})?$/,
-                  message: "Formato de preço inválido",
+                  message: " Invalid price format",
                 },
               }}
               render={({ field: { onChange, value } }) => (

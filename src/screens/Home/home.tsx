@@ -5,7 +5,6 @@ import BookItem from "../../components/BookItem";
 import booksData from "../../stores/data.json";
 import { styles } from './home.styles';
 import { sortingBooks } from '../../utils/sorting';
-import InputField from '../../components/InputField';
 import ModalForm from '../../components/ModalForm';
 
 export default function Home() {
