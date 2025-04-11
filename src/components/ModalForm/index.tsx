@@ -4,12 +4,11 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
-  Button,
-  TextInput,
   ScrollView,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
+import { styles } from "./styles";
+import InputField from "../InputField";
 
 interface FormModalProps {
   visible: boolean;
@@ -60,11 +59,11 @@ export default function ModalForm({
               name="title"
               rules={{ required: "Required Title" }}
               render={({ field: { onChange, value } }) => (
-                <TextInput
-                  style={styles.input}
-                  placeholder="Enter a Title"
+                <InputField
+                  placeholder="Enter a title"
                   value={value}
                   onChangeText={onChange}
+                  keyboardType="default"
                 />
               )}
             />
@@ -78,11 +77,11 @@ export default function ModalForm({
               name="author"
               rules={{ required: "Author Required" }}
               render={({ field: { onChange, value } }) => (
-                <TextInput
-                  style={styles.input}
+                <InputField
                   placeholder="Enter an author"
                   value={value}
                   onChangeText={onChange}
+                  keyboardType="default"
                 />
               )}
             />
@@ -96,12 +95,11 @@ export default function ModalForm({
               name="description"
               rules={{ required: "Description Required" }}
               render={({ field: { onChange, value } }) => (
-                <TextInput
-                  style={[styles.input, { height: 80 }]}
+                <InputField
                   placeholder="Enter a description"
                   value={value}
                   onChangeText={onChange}
-                  multiline
+                  keyboardType="default"
                 />
               )}
             />
@@ -121,12 +119,11 @@ export default function ModalForm({
                 },
               }}
               render={({ field: { onChange, value } }) => (
-                <TextInput
-                  style={styles.input}
-                  placeholder="Ex: 29.90"
-                  keyboardType="numeric"
-                  value={value}
+                <InputField
                   onChangeText={onChange}
+                  value={value}
+                  placeholder="Enter a price"
+                  keyboardType="numeric"
                 />
               )}
             />
@@ -135,7 +132,9 @@ export default function ModalForm({
             )}
 
             <View style={styles.actions}>
-              <Button title="Salvar" onPress={handleSubmit(onSubmit)} />
+            <TouchableOpacity onPress={handleSubmit(onSubmit)}>
+                <Text style={styles.cancel}>Salvar</Text>
+              </TouchableOpacity>
               <TouchableOpacity onPress={onClose}>
                 <Text style={styles.cancel}>Cancelar</Text>
               </TouchableOpacity>
@@ -146,48 +145,3 @@ export default function ModalForm({
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "rgba(0,0,0,0.5)",
-    padding: 20,
-  },
-  modalContent: {
-    backgroundColor: "white",
-    borderRadius: 8,
-    padding: 20,
-    maxHeight: "90%",
-  },
-  title: {
-    fontSize: 18,
-    marginBottom: 16,
-    fontWeight: "bold",
-  },
-  label: {
-    fontWeight: "600",
-    marginTop: 12,
-    marginBottom: 4,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 4,
-    padding: 10,
-    backgroundColor: "#fff",
-  },
-  error: {
-    color: "red",
-    fontSize: 12,
-    marginTop: 2,
-  },
-  actions: {
-    marginTop: 20,
-  },
-  cancel: {
-    marginTop: 10,
-    color: "#555",
-    textAlign: "center",
-  },
-});
