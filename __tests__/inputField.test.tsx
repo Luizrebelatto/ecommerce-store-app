@@ -8,6 +8,7 @@ describe('InputField Component', () => {
     
     render(
       <InputField
+        label='title'
         value="Title Book"
         onChangeText={mockOnChangeText}
         placeholder="Enter a value"
@@ -20,6 +21,7 @@ describe('InputField Component', () => {
     expect(input.props.value).toBe("Title Book");
     expect(input.props.keyboardType).toBe("default");
     expect(input.props.placeholder).toBe("Enter a value");
+    expect(input.props.label).toBe("title");
 
     fireEvent.changeText(input, "New title");
 

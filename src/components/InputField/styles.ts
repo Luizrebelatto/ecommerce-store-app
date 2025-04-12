@@ -9,5 +9,13 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       marginBottom: 10,
     },
+    label: {
+      fontWeight: "600",
+      marginTop: 12,
+      marginBottom: 4,
+    },
   });
+
+
+ 
   
