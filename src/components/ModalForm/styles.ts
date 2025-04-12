@@ -18,11 +18,6 @@ export const styles = StyleSheet.create({
       marginBottom: 16,
       fontWeight: "bold",
     },
-    label: {
-      fontWeight: "600",
-      marginTop: 12,
-      marginBottom: 4,
-    },
     input: {
       borderWidth: 1,
       borderColor: "#ccc",

@@ -49,7 +49,6 @@ export default function ModalForm({
           <ScrollView>
             <Text style={styles.title}>New Item</Text>
 
-            <Text style={styles.label}>Title</Text>
             <Controller
               control={control}
               name="title"
@@ -64,6 +63,7 @@ export default function ModalForm({
                   onChangeText={onChange}
                   keyboardType="default"
                   aria-label="Title book"
+                  label="Title"
                 />
               )}
             />
@@ -71,7 +71,6 @@ export default function ModalForm({
               <Text style={styles.error}>{errors.title.message}</Text>
             )}
 
-            <Text style={styles.label}>Author</Text>
             <Controller
               control={control}
               name="author"
@@ -83,6 +82,7 @@ export default function ModalForm({
                   onChangeText={onChange}
                   keyboardType="default"
                   aria-label="author book"
+                  label="Author"
                 />
               )}
             />
@@ -90,7 +90,6 @@ export default function ModalForm({
               <Text style={styles.error}>{errors.author.message}</Text>
             )}
 
-            <Text style={styles.label}>Description</Text>
             <Controller
               control={control}
               name="description"
@@ -105,6 +104,7 @@ export default function ModalForm({
                   onChangeText={onChange}
                   keyboardType="default"
                   accessibilityLabel="description book"
+                  label="Description"
                 />
               )}
             />
@@ -112,7 +112,6 @@ export default function ModalForm({
               <Text style={styles.error}>{errors.description.message}</Text>
             )}
 
-            <Text style={styles.label}>Price</Text>
             <Controller
               control={control}
               name="price"
@@ -127,6 +126,7 @@ export default function ModalForm({
                   placeholder="Enter a price"
                   keyboardType="numeric"
                   aria-label="price book"
+                  label="Price"
                 />
               )}
             />
