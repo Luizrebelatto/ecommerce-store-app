@@ -29,6 +29,9 @@ export default function Home() {
           <Text style={styles.plusSymbol}>+</Text>
         </TouchableOpacity>
       </View>
+      <TouchableOpacity accessibilityRole='button' >
+        <Text>Clear Filter</Text>
+      </TouchableOpacity>
       <Picker
         selectedValue={rule}
         testID='sort-picker'

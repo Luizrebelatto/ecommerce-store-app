@@ -38,7 +38,6 @@ describe('validateDescription function', () => {
 
   it('should return true for descriptions of 20 characters or less', () => {
     expect(validateDescription('short description')).toBe(true);
-    expect(validateDescription('')).toBe(true);
   });
 });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react-native';
-import Home from '../src/screens/Home/home'; // Adjust path as needed
+import Home from '../src/screens/Home/home';
 import { sortingBooks } from '../src/utils/sorting';
 
 jest.mock('../src/stores/data.json', () => ({
@@ -54,5 +54,10 @@ describe('Home Component', () => {
     await waitFor(() => {
       expect(screen.queryByText('New Item')).toBeNull();
     });
+  });
+
+  it('should render clear filter button', () => {
+    render(<Home />);
+    expect(screen.getByRole("button")).toBeDefined()
   });
 });
