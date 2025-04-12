@@ -25,6 +25,15 @@ describe('ModalForm Component', () => {
     expect(screen.getByPlaceholderText('Enter a price')).toBeTruthy();
   });
 
+  it('should render components correctly by label', () => {
+    setup();
+
+    expect(screen.getByLabelText('Title book')).toBeDefined();
+    expect(screen.getByLabelText('author book')).toBeDefined();
+    expect(screen.getByLabelText('description book')).toBeDefined();
+    expect(screen.getByLabelText('price book')).toBeDefined();
+  });
+
   it("should cancel modal when the user click button 'cancel'", () => {
     setup();
 

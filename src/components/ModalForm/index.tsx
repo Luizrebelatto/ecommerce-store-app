@@ -63,6 +63,7 @@ export default function ModalForm({
                   value={value}
                   onChangeText={onChange}
                   keyboardType="default"
+                  aria-label="Title book"
                 />
               )}
             />
@@ -81,6 +82,7 @@ export default function ModalForm({
                   value={value}
                   onChangeText={onChange}
                   keyboardType="default"
+                  aria-label="author book"
                 />
               )}
             />
@@ -102,6 +104,7 @@ export default function ModalForm({
                   value={value}
                   onChangeText={onChange}
                   keyboardType="default"
+                  accessibilityLabel="description book"
                 />
               )}
             />
@@ -123,6 +126,7 @@ export default function ModalForm({
                   value={value}
                   placeholder="Enter a price"
                   keyboardType="numeric"
+                  aria-label="price book"
                 />
               )}
             />
