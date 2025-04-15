@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 
 type LoadingState = {
-  status: 'loading' | 'success' | 'error';
+  status:  'success' | 'error' | 'loading'
 };
 
 function LoadingComponent({ status }: LoadingState) {
