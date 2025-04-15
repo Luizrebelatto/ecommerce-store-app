@@ -58,6 +58,7 @@ describe('Home Component', () => {
 
   it('should render clear filter button', () => {
     render(<Home />);
+    screen.debug()
     expect(screen.getByRole("button")).toBeDefined()
   });
 
