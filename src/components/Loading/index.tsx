@@ -7,8 +7,8 @@ type LoadingState = {
 
 function LoadingComponent({ status }: LoadingState) {
   if (status === 'loading') return <Text>Loading...</Text>;
-  if (status === 'success') return <Text>Data loaded successfully!</Text>;
-  if (status === 'error') return <Text>Something went wrong.</Text>;
+  if (status === 'success') return <Text>Loaded successfully!</Text>;
+  if (status === 'error') return <Text>Error!</Text>;
 
   return null;
 }
