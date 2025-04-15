@@ -4,14 +4,17 @@ import LoadingComponent from '../src/components/Loading';
 
 describe('Loading Component', () => {
   it('should update the message when the status changes', () => {
-   render(<LoadingComponent status="loading" />);
+   const { getByText, rerender, unmount, queryByText, debug } = render(<LoadingComponent status="loading" />);
 
-    expect(screen.getByText('Loading...')).toBeTruthy();
+    expect(getByText('Loading...')).toBeTruthy();
 
-    screen.rerender(<LoadingComponent status="success" />);
-    expect(screen.getByText('Loaded successfully!')).toBeTruthy();
+    rerender(<LoadingComponent status="success" />);
+    expect(getByText('Loaded successfully!')).toBeTruthy();
 
-    screen.rerender(<LoadingComponent status="error" />);
-    expect(screen.getByText('Error!')).toBeDefined();
+    rerender(<LoadingComponent status="error" />);
+    expect(getByText('Error!')).toBeDefined();
+    
+
+    unmount()
   });
 });
