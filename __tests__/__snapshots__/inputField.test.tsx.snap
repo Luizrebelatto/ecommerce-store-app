@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField Structure renders correctly and matches snapshot (toJSON) 1`] = `
+[
+  <Text
+    style={
+      {
+        "fontWeight": "600",
+        "marginBottom": 4,
+        "marginTop": 12,
+      }
+    }
+  >
+    Título
+  </Text>,
+  <TextInput
+    keyboardType="default"
+    onChangeText={[Function]}
+    placeholder="Digite o título"
+    style={
+      {
+        "borderColor": "#ccc",
+        "borderRadius": 8,
+        "borderWidth": 1,
+        "fontSize": 16,
+        "marginBottom": 10,
+        "padding": 10,
+      }
+    }
+    value="Livro"
+  />,
+]
+`;
