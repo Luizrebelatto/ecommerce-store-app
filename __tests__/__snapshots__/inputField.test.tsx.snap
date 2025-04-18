@@ -11,12 +11,12 @@ exports[`InputField Structure renders correctly and matches snapshot (toJSON) 1`
       }
     }
   >
-    Título
+    Title
   </Text>,
   <TextInput
     keyboardType="default"
     onChangeText={[Function]}
-    placeholder="Digite o título"
+    placeholder="Title Book"
     style={
       {
         "borderColor": "#ccc",
@@ -27,7 +27,7 @@ exports[`InputField Structure renders correctly and matches snapshot (toJSON) 1`
         "padding": 10,
       }
     }
-    value="Livro"
+    value="Value InputField"
   />,
 ]
 `;

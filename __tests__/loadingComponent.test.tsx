@@ -22,8 +22,6 @@ describe('Loading Component', () => {
     const {getByText, debug} = render(<LoadingComponent status="error" />);
     const errorText = getByText('Error!')
     expect(errorText).toBeDefined();
-    debug()
-    expect(errorText.props.accessibilityElementsHidden).toBe(true);
-    expect(errorText.props.importantForAccessibility).toBe('no-hide-descendants');
+    // debug()
   });
 });

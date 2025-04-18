@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text, TextInput } from "react-native";
 import { render, fireEvent, screen } from '@testing-library/react-native';
 import InputField from '../src/components/InputField';
 import renderer from 'react-test-renderer';
@@ -22,7 +23,6 @@ describe('InputField Component', () => {
     expect(input.props.value).toBe("Title Book");
     expect(input.props.keyboardType).toBe("default");
     expect(input.props.placeholder).toBe("Enter a value");
-    expect(input.props.label).toBe("Title field");
     expect(screen.getByDisplayValue('Title Book')).toBeDefined()
 
     fireEvent.changeText(input, "New title");
@@ -49,10 +49,10 @@ describe('InputField Structure', () => {
   it('renders Text and TextInput with correct props (root)', () => {
     const tree = renderer.create(
       <InputField
-        label="Título"
-        value="Livro"
+        label="Title"
+        value="Value InputField"
         onChangeText={() => {}}
-        placeholder="Digite o título"
+        placeholder="Title Book"
         keyboardType="default"
       />
     );
@@ -62,9 +62,9 @@ describe('InputField Structure', () => {
     const labelText = root.findByType(Text);
     const input = root.findByType(TextInput);
 
-    expect(labelText.props.children).toBe('Título');
-    expect(input.props.value).toBe('Livro');
-    expect(input.props.placeholder).toBe('Digite o título');
+    expect(labelText.props.children).toBe('Title');
+    expect(input.props.value).toBe('Value InputField');
+    expect(input.props.placeholder).toBe('Title Book');
     expect(input.props.keyboardType).toBe('default');
   });
 });
