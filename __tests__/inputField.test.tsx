@@ -66,5 +66,8 @@ describe('InputField Structure', () => {
     expect(input.props.value).toBe('Value InputField');
     expect(input.props.placeholder).toBe('Title Book');
     expect(input.props.keyboardType).toBe('default');
+
+    expect(input.props).toHaveProperty('value', 'Value InputField');
+    expect(input.props).toHaveProperty('placeholder', 'Title Book');
   });
 });
